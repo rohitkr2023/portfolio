@@ -166,14 +166,14 @@ export default function Home() {
       }`}>
         {isDark && <Starfield />}
 
-        {/* Floating Side Socials Bar (Hidden on Mobile/Tablet to prevent screen clutter) */}
-        <aside className="fixed left-6 bottom-12 z-40 hidden xl:flex flex-col items-center gap-4">
+        {/* LEFT FLOATING SOCIAL BAR (RESTORED TO LEFT WITH ZERO-OVERLAP POSITIONING) */}
+        <aside className="fixed left-3 sm:left-5 lg:left-6 bottom-8 sm:bottom-12 z-40 hidden md:flex flex-col items-center gap-3.5">
           <a 
             href={PERSONAL_INFO.github} 
             target="_blank" 
             rel="noreferrer" 
-            className={`w-10 h-10 rounded-xl backdrop-blur-md border flex items-center justify-center transition-all duration-300 shadow-lg ${
-              isDark ? "bg-white/[0.03] border-white/10 hover:border-purple-400 hover:bg-purple-500/15 text-slate-400 hover:text-white" : "bg-white border-slate-200 hover:border-purple-500 hover:bg-purple-50 text-slate-600 hover:text-purple-600"
+            className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl backdrop-blur-md border flex items-center justify-center transition-all duration-300 shadow-lg ${
+              isDark ? "bg-[#0c0919]/80 border-white/10 hover:border-purple-400 hover:bg-purple-500/20 text-slate-400 hover:text-white" : "bg-white/90 border-slate-200 hover:border-purple-500 hover:bg-purple-50 text-slate-600 hover:text-purple-600"
             }`}
             title="GitHub"
           >
@@ -183,8 +183,8 @@ export default function Home() {
             href={PERSONAL_INFO.linkedin} 
             target="_blank" 
             rel="noreferrer" 
-            className={`w-10 h-10 rounded-xl backdrop-blur-md border flex items-center justify-center transition-all duration-300 shadow-lg ${
-              isDark ? "bg-white/[0.03] border-white/10 hover:border-cyan-400 hover:bg-cyan-500/15 text-slate-400 hover:text-white" : "bg-white border-slate-200 hover:border-cyan-500 hover:bg-cyan-50 text-slate-600 hover:text-cyan-600"
+            className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl backdrop-blur-md border flex items-center justify-center transition-all duration-300 shadow-lg ${
+              isDark ? "bg-[#0c0919]/80 border-white/10 hover:border-cyan-400 hover:bg-cyan-500/20 text-slate-400 hover:text-white" : "bg-white/90 border-slate-200 hover:border-cyan-500 hover:bg-cyan-50 text-slate-600 hover:text-cyan-600"
             }`}
             title="LinkedIn"
           >
@@ -192,14 +192,14 @@ export default function Home() {
           </a>
           <a 
             href={`mailto:${PERSONAL_INFO.email}`} 
-            className={`w-10 h-10 rounded-xl backdrop-blur-md border flex items-center justify-center transition-all duration-300 shadow-lg ${
-              isDark ? "bg-white/[0.03] border-white/10 hover:border-pink-400 hover:bg-pink-500/15 text-slate-400 hover:text-white" : "bg-white border-slate-200 hover:border-pink-500 hover:bg-pink-50 text-slate-600 hover:text-pink-600"
+            className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl backdrop-blur-md border flex items-center justify-center transition-all duration-300 shadow-lg ${
+              isDark ? "bg-[#0c0919]/80 border-white/10 hover:border-pink-400 hover:bg-pink-500/20 text-slate-400 hover:text-white" : "bg-white/90 border-slate-200 hover:border-pink-500 hover:bg-pink-50 text-slate-600 hover:text-pink-600"
             }`}
             title="Email"
           >
             <Mail size={16} />
           </a>
-          <div className={`w-[1px] h-16 ${isDark ? "bg-gradient-to-b from-white/20 to-transparent" : "bg-gradient-to-b from-slate-300 to-transparent"}`} />
+          <div className={`w-[1px] h-14 sm:h-16 ${isDark ? "bg-gradient-to-b from-white/25 to-transparent" : "bg-gradient-to-b from-slate-400 to-transparent"}`} />
         </aside>
 
         {/* Capsule Header */}
@@ -259,7 +259,6 @@ export default function Home() {
                 <Download size={14} /> Resume
               </a>
 
-              {/* Mobile Menu Button */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label="Open Navigation Menu"
@@ -272,7 +271,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Mobile Drawer (Clean, Large Tap Targets) */}
+          {/* Mobile Drawer */}
           {mobileMenuOpen && (
             <div className={`md:hidden px-5 py-4 border-b space-y-2 backdrop-blur-2xl transition-all shadow-2xl ${
               isDark ? "bg-[#07060f]/95 border-white/10" : "bg-white/95 border-slate-200"
@@ -309,8 +308,8 @@ export default function Home() {
           )}
         </header>
 
-        {/* HERO SECTION */}
-        <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 pt-24 sm:pt-28 pb-16 relative">
+        {/* HERO SECTION (WITH DEDICATED LEFT PADDING FOR NO OVERLAP) */}
+        <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 md:pl-20 xl:pl-24 pt-24 sm:pt-28 pb-16 relative">
           <div className="max-w-6xl w-full mx-auto grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             <div className="lg:col-span-7 space-y-4 sm:space-y-6 text-left">
@@ -360,8 +359,8 @@ export default function Home() {
                 </a>
               </div>
 
-              {/* Mobile Social Bar */}
-              <div className="flex xl:hidden items-center gap-4 pt-2">
+              {/* Mobile-only social row (since on desktop it is cleanly placed on the far left) */}
+              <div className="flex md:hidden items-center gap-3 pt-2">
                 <a href={PERSONAL_INFO.github} target="_blank" rel="noreferrer" className="p-2 rounded-lg bg-white/5 border border-white/10 text-slate-400 hover:text-white" title="GitHub">
                   <GithubIcon className="w-4 h-4" />
                 </a>
@@ -411,7 +410,7 @@ export default function Home() {
         </section>
 
         {/* ABOUT ME */}
-        <section id="about" className={`py-16 sm:py-24 px-4 sm:px-6 max-w-6xl mx-auto border-t ${isDark ? "border-white/[0.06]" : "border-slate-200"}`}>
+        <section id="about" className={`py-16 sm:py-24 px-4 sm:px-6 md:pl-20 xl:pl-24 max-w-6xl mx-auto border-t ${isDark ? "border-white/[0.06]" : "border-slate-200"}`}>
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-center">
             <div className="lg:col-span-5 flex justify-center">
               <div className={`w-full max-w-[240px] sm:max-w-xs rounded-3xl border p-2.5 sm:p-3 shadow-lg ${
@@ -465,8 +464,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ROADMAP TECHNICAL SKILLS (RESPONSIVE BLUEPRINT LAYOUT) */}
-        <section id="skills" className={`py-16 sm:py-24 px-4 sm:px-6 max-w-5xl mx-auto border-t ${isDark ? "border-white/[0.06]" : "border-slate-200"}`}>
+        {/* ROADMAP TECHNICAL SKILLS */}
+        <section id="skills" className={`py-16 sm:py-24 px-4 sm:px-6 md:pl-20 xl:pl-24 max-w-5xl mx-auto border-t ${isDark ? "border-white/[0.06]" : "border-slate-200"}`}>
           <div className="text-center max-w-xl mx-auto mb-12 sm:mb-16 space-y-2">
             <span className="inline-block text-[10px] sm:text-[11px] font-mono uppercase tracking-widest text-cyan-400 border border-cyan-400/30 px-3 py-1 rounded-full bg-cyan-400/10">
               ✦ TECHNICAL ARSENAL
@@ -478,7 +477,6 @@ export default function Home() {
           </div>
 
           <div className="relative">
-            {/* Desktop Center Line / Mobile Left Line */}
             <div className="absolute left-4 md:left-1/2 -translate-x-1/2 top-2 bottom-2 w-[2px] bg-gradient-to-b from-cyan-400 via-purple-500 to-emerald-400 opacity-60" />
 
             <div className="space-y-6 md:space-y-12">
@@ -540,7 +538,7 @@ export default function Home() {
         </section>
 
         {/* EXPERIENCE & ACHIEVEMENTS */}
-        <section id="experience" className={`py-16 sm:py-24 px-4 sm:px-6 max-w-6xl mx-auto border-t ${isDark ? "border-white/[0.06]" : "border-slate-200"}`}>
+        <section id="experience" className={`py-16 sm:py-24 px-4 sm:px-6 md:pl-20 xl:pl-24 max-w-6xl mx-auto border-t ${isDark ? "border-white/[0.06]" : "border-slate-200"}`}>
           <div className="text-center max-w-xl mx-auto mb-12 sm:mb-16 space-y-2">
             <h2 className={`text-2xl sm:text-4xl font-extrabold ${isDark ? "text-white" : "text-slate-900"}`}>
               Experience &amp; <span className="text-cyan-400">Achievements</span>
@@ -684,7 +682,7 @@ export default function Home() {
         </section>
 
         {/* TERMINAL CLI */}
-        <section className={`py-14 sm:py-20 px-4 sm:px-6 max-w-4xl mx-auto border-t ${isDark ? "border-white/[0.06]" : "border-slate-200"}`}>
+        <section className={`py-14 sm:py-20 px-4 sm:px-6 md:pl-20 xl:pl-24 max-w-4xl mx-auto border-t ${isDark ? "border-white/[0.06]" : "border-slate-200"}`}>
           <div className="rounded-2xl overflow-hidden bg-slate-950 border border-white/10 hover:border-cyan-500/40 hover:shadow-[0_0_30px_rgba(6,182,212,0.1)] transition-all duration-300 shadow-xl font-mono text-[11px] sm:text-xs text-slate-200">
             <div className="bg-[#120f24] px-4 py-2.5 sm:py-3 border-b border-white/10 flex items-center justify-between">
               <div className="flex items-center gap-2">
@@ -720,7 +718,7 @@ export default function Home() {
         </section>
 
         {/* FEATURED PROJECTS */}
-        <section id="projects" className={`py-16 sm:py-24 px-4 sm:px-6 max-w-6xl mx-auto border-t ${isDark ? "border-white/[0.06]" : "border-slate-200"}`}>
+        <section id="projects" className={`py-16 sm:py-24 px-4 sm:px-6 md:pl-20 xl:pl-24 max-w-6xl mx-auto border-t ${isDark ? "border-white/[0.06]" : "border-slate-200"}`}>
           <div className="text-center max-w-xl mx-auto mb-12 sm:mb-16 space-y-2">
             <span className="inline-block text-[10px] sm:text-[11px] font-mono uppercase tracking-widest text-cyan-400 border border-cyan-400/30 px-3 py-1 rounded-full bg-cyan-400/10">
               ✦ SELECTED WORK
@@ -797,7 +795,7 @@ export default function Home() {
         </section>
 
         {/* CONTACT SECTION */}
-        <section id="contact" className={`py-16 sm:py-24 px-4 sm:px-6 max-w-6xl mx-auto border-t relative ${isDark ? "border-white/[0.06]" : "border-slate-200"}`}>
+        <section id="contact" className={`py-16 sm:py-24 px-4 sm:px-6 md:pl-20 xl:pl-24 max-w-6xl mx-auto border-t relative ${isDark ? "border-white/[0.06]" : "border-slate-200"}`}>
           <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16 space-y-2">
             <span className="inline-block text-[10px] sm:text-[11px] font-mono uppercase tracking-widest text-cyan-400 border border-cyan-400/30 px-3 py-1 rounded-full bg-cyan-400/10">
               ✦ GET IN TOUCH
@@ -936,7 +934,7 @@ export default function Home() {
         </section>
 
         {/* FOOTER */}
-        <footer className={`py-10 sm:py-12 px-4 sm:px-6 border-t ${
+        <footer className={`py-10 sm:py-12 px-4 sm:px-6 md:pl-20 xl:pl-24 border-t ${
           isDark ? "border-white/[0.06] bg-[#05040d]" : "border-slate-200 bg-white"
         }`}>
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-5 text-center md:text-left">
