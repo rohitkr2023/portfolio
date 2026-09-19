@@ -624,7 +624,7 @@ export default function Home() {
                     >
                       <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 mb-1">
                         <h4 className={`text-xs sm:text-sm font-bold group-hover:text-purple-400 transition-colors ${isDark ? "text-white" : "text-slate-900"}`}>{edu.degree}</h4>
-                        <span className="self-start px-2 py-0.5 rounded text-[10px] font-mono bg-purple-500/10 border border-purple-500/25 text-purple-400 font-semibold">
+                        <span className="self-start px-2 py-0.5 rounded text-[10px] font-mono bg-purple-500/10 border border-purple-500/25 text-purple-400 font-semibold whitespace-nowrap shrink-0">
                           {edu.period}
                         </span>
                       </div>
@@ -963,3 +963,4 @@ export default function Home() {
     </div>
   );
 }
+
